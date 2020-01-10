@@ -1,11 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var logger = require('morgan');
 
+var Sequelize = require('sequelize');
+require('dotenv').config();
+
+require("./config/config.js");
 
 const app = express();
 const port = 5000;
 const router = express.Router();
 
+app.use(logger('dev'));
 
 // Support JSON-encoded bodies
 app.use(bodyParser.json());
@@ -27,6 +33,14 @@ app.use(function (req, res, next) {
    next();
 });
 
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 app.use('/api', router);
 
@@ -36,7 +50,9 @@ app.use('/api', router);
 // const db = require("./models/connections.js");
 // db.sequelize.sync();
 
-require("./routes/client.routes.js")(router);
+
+
+require("./routes/clients.routes.js")(router);
 
 
 app.listen(port, (err) => {

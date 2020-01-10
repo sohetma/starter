@@ -1,11 +1,12 @@
+'use strict';
 const Sequelize = require('sequelize');
 
-module.export = (sequelize, Sequelize) => {
-  const Client = sequelize.define("client",{
+module.exports = (sequelize, Sequelize) => {
+  const Client = sequelize.define("clients",{
     id : {
       type : Sequelize.INTEGER(11),
       allowNull : false,
-      autoIcrement : true,
+      autoIncrement : true,
       primaryKey : true
     },
     firstname :  {
