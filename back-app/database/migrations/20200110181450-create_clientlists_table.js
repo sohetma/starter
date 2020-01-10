@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("clients",{
+    return queryInterface.createTable("clientlists",{
       id : {
         type : Sequelize.INTEGER(11),
         allowNull : false,
@@ -15,11 +15,12 @@ module.exports = {
       },
       lastname :  Sequelize.STRING(30),
       email :  Sequelize.STRING(30),
-      createdAt : Sequelize.DATE
+      createdAt : Sequelize.DATE,
+      updateAt : Sequelize.DATE
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("clients");
+    return queryInterface.dropTable("clientlists");
   }
 };

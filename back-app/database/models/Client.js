@@ -1,8 +1,9 @@
 'use strict';
 const Sequelize = require('sequelize');
+var db = require('./index');
+var sequelize = db.sequelize;
 
-module.exports = (sequelize, Sequelize) => {
-  const Client = sequelize.define("clients",{
+  const Client = sequelize.define("clientlists",{
     id : {
       type : Sequelize.INTEGER(11),
       allowNull : false,
@@ -14,7 +15,18 @@ module.exports = (sequelize, Sequelize) => {
       allowNull : false
     },
     lastname :  Sequelize.STRING(30),
-    email :  Sequelize.STRING(30)
-  }, {});
-  return Client;
-};
+    email :  Sequelize.STRING(30),
+    createdAt : {
+     type : Sequelize.DATE,
+     defaultValue: sequelize.literal('NOW()')
+   },
+    updateAt: Sequelize.DATE
+  },
+  {
+    timestamps: false
+  }
+);
+
+   // Client.associate = function(models) {};
+
+module.exports = Client;

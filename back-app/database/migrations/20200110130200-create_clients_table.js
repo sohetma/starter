@@ -16,8 +16,12 @@ module.exports = {
       lastname :  Sequelize.STRING(30),
       email :  Sequelize.STRING(30),
       createdAt : Sequelize.DATE,
-      updateAt : Sequelize.DATE
-    });
+      updateAt: Sequelize.DATE
+    },
+    {
+      timestamps: false
+    }
+  );
   },
 
   down: (queryInterface, Sequelize) => {
