@@ -1,5 +1,7 @@
 const Client = require("../models/client.model.js");
-
+// const db = require("../models/connections");
+// const Client = db.client;
+// const Op = db.Sequelize.Op;
 
 // Save a new client
 exports.create = (req, res) => {
@@ -40,6 +42,22 @@ exports.findAll = (req, res) => {
     else res.send(data);
   });
 };
+
+// exports.findAll = (req, res) => {
+//   const title = req.query.title;
+//   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+//
+//   Client.findAll({ where: condition })
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while retrieving tutorials."
+//       });
+//     });
+// };
 
 
 // Find a single Client with a clientId:

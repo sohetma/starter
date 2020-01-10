@@ -31,6 +31,10 @@ app.use(function (req, res, next) {
 app.use('/api', router);
 
 
+// require("./stores/connections.js");
+// require("./models/clients.model.js")();
+// const db = require("./models/connections.js");
+// db.sequelize.sync();
 
 require("./routes/client.routes.js")(router);
 
@@ -42,3 +46,6 @@ app.listen(port, (err) => {
 
   console.log(`Server is listening on ${port}`);
 });
+
+
+module.exports = app;

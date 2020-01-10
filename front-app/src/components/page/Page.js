@@ -8,10 +8,6 @@ import ClientSelected from "./ClientSelected";
 import Welcome from './Welcome';
 
 class Page extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render(){
     return (<Router>
       <div className="App">

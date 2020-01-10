@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Route, Link} from "react-router-dom";
+import { BrowserRouter as Link} from "react-router-dom";
 
 class ClientSelected extends React.Component {
   constructor(props) {

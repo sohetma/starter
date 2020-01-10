@@ -17,7 +17,8 @@ Client.create = (newClient, result) => {
     }
 
     console.log("created client: ", {...newClient });
-    result(null, {...newClient });
+    console.log("created client response id : ", res.insertId);
+    result(null, {id:res.insertId,...newClient});
   });
 };
 

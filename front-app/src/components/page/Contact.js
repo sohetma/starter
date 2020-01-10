@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import '../styles/style.css';
-import { BrowserRouter as Route, Link} from "react-router-dom";
+import { BrowserRouter as Link} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
