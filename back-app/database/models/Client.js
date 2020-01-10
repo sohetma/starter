@@ -15,6 +15,6 @@ module.exports = (sequelize, Sequelize) => {
     },
     lastname :  Sequelize.STRING(30),
     email :  Sequelize.STRING(30)
-  });
+  }, {});
   return Client;
 };
