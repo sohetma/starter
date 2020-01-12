@@ -37,7 +37,8 @@ function Contact() {
     await fetch(urlApi, options)
     .then(response => response.json())
     .then(response => {
-      setClients(response);
+      console.log("response is : " , response);
+      setClients(response.data);
     })
   }
 

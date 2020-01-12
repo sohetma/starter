@@ -15,8 +15,14 @@ module.exports = {
       },
       lastname :  Sequelize.STRING(30),
       email :  Sequelize.STRING(30),
-      createdAt : Sequelize.DATE,
-      updateAt : Sequelize.DATE
+      createdAt : {
+       type : Sequelize.DATE,
+       defaultValue: sequelize.literal('NOW()')
+     },
+      updateAt: {
+       type : Sequelize.DATE,
+       defaultValue: sequelize.literal('NOW()')
+     }
     });
   },
 

@@ -28,15 +28,16 @@ class Page extends React.Component {
         </nav>
 
         <Switch>
-          <Route path="/clients/:id/:firstname/:lastname/:email" render={ () => (
-            <ClientSelected/>)}
-          />
+
           <Route path="/clients/new" render={ () => (
             <Client/>)}
           />
           <Route path="/clients" render={ () => (
             <Contact
             />)}
+          />
+          <Route path="/clients/:id/:firstname/:lastname/:email" render={ () => (
+            <ClientSelected/>)}
           />
           <Route path="/" component={Welcome}/>
         </Switch>

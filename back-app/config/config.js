@@ -1,6 +1,6 @@
 const dbConfig = require("../db.config.js");
 
-const conf = {
+module.exports = {
   development: {
     "username": dbConfig.USER,
     "password": dbConfig.PASSWORD,
@@ -23,9 +23,4 @@ const conf = {
     "host": "127.0.0.1",
     dialect: 'mysql',
   },
-}
-
-const config = JSON.stringify(conf);
-// console.log("config" , config);
-
-module.exports = config;
+};

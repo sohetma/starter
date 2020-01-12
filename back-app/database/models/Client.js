@@ -20,7 +20,10 @@ var sequelize = db.sequelize;
      type : Sequelize.DATE,
      defaultValue: sequelize.literal('NOW()')
    },
-    updateAt: Sequelize.DATE
+    updateAt: {
+     type : Sequelize.DATE,
+     defaultValue: sequelize.literal('NOW()')
+   }
   },
   {
     timestamps: false

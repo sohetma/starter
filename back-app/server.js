@@ -44,14 +44,6 @@ app.use(function(err, req, res, next) {
 
 app.use('/api', router);
 
-
-// require("./stores/connections.js");
-// require("./models/clients.model.js")();
-// const db = require("./models/connections.js");
-// db.sequelize.sync();
-
-
-
 require("./routes/clients.routes.js")(router);
 
 

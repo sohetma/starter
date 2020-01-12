@@ -2,40 +2,6 @@ const client = require('../database/models/Client');
 
 const ResponseFormat = require('../core').ResponseFormat;
 
-
-//   const create = async (req, res) => {
-//     console.log(Client);
-//     try {
-//       const post = await Client.create(
-//         {
-//           firstname : req.body.firstname,
-//           lastname : req.body.lastname,
-//           email : req.body.email
-//         }
-//       );
-//       return res.status(201).json({
-//         post
-//       });
-//     } catch (error) {
-//       return res.status(500).json({ error: error.message });
-//     }
-//   };
-//
-//   const list = async (req, res) => {
-//     try {
-//       const posts = await Client.findAll();
-//       return res.status(200).json({ posts });
-//     } catch (error) {
-//       return res.status(500).send(error.message);
-//     }
-//   };
-//
-// module.exports = {
-//   create,
-//   list
-// }
-
-
 module.exports = {
     create(req, res) {
       console.log(client);
