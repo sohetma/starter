@@ -34,7 +34,7 @@
 ### Step 4
  1) In 'front-app' : ```npm start```
  2) In 'back-app' : ``` node server.js``` 
- 3) In back to test : `` npm run test ```
+ 3) In back to test : ``` npm run test ```
 
 
  
