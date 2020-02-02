@@ -17,11 +17,11 @@ module.exports = {
       email :  Sequelize.STRING(30),
       createdAt : {
        type : Sequelize.DATE,
-       defaultValue: sequelize.literal('NOW()')
+       defaultValue: Sequelize.literal('NOW()')
      },
       updateAt: {
        type : Sequelize.DATE,
-       defaultValue: sequelize.literal('NOW()')
+       defaultValue: Sequelize.literal('NOW()')
      }
     });
   },

@@ -1,17 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-var logger = require('morgan');
-
-var Sequelize = require('sequelize');
-require('dotenv').config();
-
-require("./config/config.js");
+const logger = require('morgan');
 
 const app = express();
-const port = 5000;
 const router = express.Router();
 
-app.use(logger('dev'));
+const environment = process.env.NODE_ENV;
+const stage = require('./config')[environment];
 
 // Support JSON-encoded bodies
 app.use(bodyParser.json());
@@ -46,13 +42,13 @@ app.use('/api', router);
 
 require("./routes/clients.routes.js")(router);
 
+app.listen(`${stage.port}`, (err) => {
 
-app.listen(port, (err) => {
-  if (err) {
-    throw new Error('Something bad happened...');
-  }
+    if (err) {
+      throw new Error('Something bad happened...');
+    }
 
-  console.log(`Server is listening on ${port}`);
+  console.log(`Server now listening at localhost:${stage.port}`);
 });
 
 

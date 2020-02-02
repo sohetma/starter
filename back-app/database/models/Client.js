@@ -2,8 +2,9 @@
 const Sequelize = require('sequelize');
 var db = require('./index');
 var sequelize = db.sequelize;
+console.log(sequelize)
 
-  const Client = sequelize.define("clientlists",{
+const Client = sequelize.define("clientlists",{
     id : {
       type : Sequelize.INTEGER(11),
       allowNull : false,
