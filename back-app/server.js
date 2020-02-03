@@ -35,12 +35,12 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err);
 });
 
 app.use('/api', router);
 
-require("./routes/clients.routes.js")(router);
+require("./routes/clients.js")(router);
 
 app.listen(`${stage.port}`, (err) => {
 
@@ -48,7 +48,7 @@ app.listen(`${stage.port}`, (err) => {
       throw new Error('Something bad happened...');
     }
 
-  console.log(`Server now listening at localhost:${stage.port}`);
+   console.log(`Server now listening at localhost:${stage.port}`);
 });
 
 

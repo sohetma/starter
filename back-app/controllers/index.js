@@ -1,4 +1,4 @@
-const clients = require('./clients.controller.js');
+const clients = require('./clients.js');
 
 module.exports = {
     clients

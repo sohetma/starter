@@ -10,14 +10,15 @@ const formData = {
 
 describe('Post Endpoints', () => {
   it('should create a new post', async () => {
-    const res = await request(app)
-      .post('/api/clients')
-      .send(formData)
-    expect(res.statusCode).toEqual(201)
-    expect(typeof res.body).toBe('object');
-    expect(res.body.data).toHaveProperty('firstname')
-    expect(res.body.data).toHaveProperty('lastname')
-    expect(res.body.data).toHaveProperty('email')
-    expect(res.body.data).toHaveProperty('id')
-  })
+      const res = await request(app)
+        .post('/api/clients')
+        .send(formData)
+        expect(res.statusCode).toEqual(201)
+        expect(typeof res.body).toBe('object');
+        expect(res.body.data).toHaveProperty('firstname')
+        expect(res.body.data).toHaveProperty('lastname')
+        expect(res.body.data).toHaveProperty('email')
+        expect(res.body.data).toHaveProperty('id')
+
+  }, 90000)
 })

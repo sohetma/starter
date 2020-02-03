@@ -1,10 +1,9 @@
-const client = require('../database/models/Client');
+const client = require('../models/Client');
 
-const ResponseFormat = require('../core').ResponseFormat;
+const ResponseFormat = require('../utils').ResponseFormat;
 
 module.exports = {
-    create(req, res) {
-      console.log(client);
+    create: (req, res) => {
         return client.create({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -22,7 +21,8 @@ module.exports = {
             "error"
         )))
     },
-    list(req, res) {
+
+    list: (req, res) => {
       console.log(client, "clients");
         return client
         .findAll()
@@ -39,9 +39,10 @@ module.exports = {
             "error"
         )));
     },
-    getClientDetails (req, res) {
+
+    show: (req, res) => {
         return client
-        .findById(req.params.clientId)
+        .findById(req.params.id)
         .then(clients => {
 
             if(!clients) {
@@ -73,9 +74,10 @@ module.exports = {
             )
         ));
     },
-    update(req, res) {
+
+    update: (req, res) => {
         return client
-        .findById(req.params.clientId)
+        .findById(req.params.id)
         .then(usr => {
             if(!usr) {
                 return res.status(404).json(
@@ -112,9 +114,10 @@ module.exports = {
             ));
         });
     },
-    destroy (req, res) {
+
+    destroy: (req, res) => {
         return client
-        .findById(req.params.clientId)
+        .findById(req.params.id)
         .then(usr => {
             if(!usr) {
                 return res.status(404).json(
