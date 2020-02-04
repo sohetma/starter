@@ -1,7 +1,7 @@
 'use strict';
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
-const config = require("../config.js")[env].database;
+const config = require("../config.js")[env];
 console.log(config)
 const db = {};
 
@@ -21,6 +21,8 @@ if (config.environment === 'production') {
     }
   );
 } else {
+  console.log("here")
+  console.log(config)
   sequelize = new Sequelize(
      config.database, config.username, config.password, config
   );
