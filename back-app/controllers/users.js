@@ -1,16 +1,16 @@
-const client = require('../models/Client');
+const user = require('../models/Client');
 
 const ResponseFormat = require('../utils').ResponseFormat;
 
 module.exports = {
     create: (req, res) => {
-        return client.create({
+        return user.create({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             email: req.body.email
         })
-        .then(client => res.status(201).json(ResponseFormat.build(
-            client,
+        .then(user => res.status(201).json(ResponseFormat.build(
+            user,
             "Client Create Successfully",
             201,
             "success"
@@ -23,11 +23,11 @@ module.exports = {
     },
 
     list: (req, res) => {
-      console.log(client, "clients");
-        return client
+      console.log(user, "users");
+        return user
         .findAll()
-        .then(clients => res.status(200).json(ResponseFormat.build(
-            clients,
+        .then(users => res.status(200).json(ResponseFormat.build(
+            users,
             "Client Information Reterive successfully",
             200,
             "success"
@@ -41,15 +41,15 @@ module.exports = {
     },
 
     show: (req, res) => {
-        return client
+        return user
         .findById(req.params.id)
-        .then(clients => {
+        .then(users => {
 
-            if(!clients) {
+            if(!users) {
                 return res.status(404).json(
                     ResponseFormat.build(
                         {},
-                        "No client found",
+                        "No user found",
                         404,
                         "error"
                     )
@@ -58,7 +58,7 @@ module.exports = {
 
             return res.status(200).json(
                 ResponseFormat.build(
-                    clients,
+                    users,
                     "Client information reterieve successfully",
                     200,
                     "success"
@@ -68,7 +68,7 @@ module.exports = {
         .catch(error => res.status(500).json(
             ResponseFormat.error(
                 error,
-                "Something went wrong when reterive the client details",
+                "Something went wrong when reterive the user details",
                 500,
                 "error"
             )
@@ -76,8 +76,8 @@ module.exports = {
     },
 
     update: (req, res) => {
-        return client
-        .findByPk(req.params.id)
+        return user
+        .findById(req.params.id)
         .then(usr => {
             if(!usr) {
                 return res.status(404).json(
@@ -99,7 +99,7 @@ module.exports = {
             .then(() => res.status(200).json(
                 ResponseFormat.build(
                     usr,
-                    "client Update successfully",
+                    "user Update successfully",
                     200,
                     "success"
                 )
@@ -107,7 +107,7 @@ module.exports = {
             .catch((error) => res.status(500).json(
                 ResponseFormat.build(
                     {},
-                    "someting went wrong when update the client",
+                    "someting went wrong when update the user",
                     500,
                     "error"
                 )
@@ -116,14 +116,14 @@ module.exports = {
     },
 
     destroy: (req, res) => {
-        return client
-        .findByPk(req.params.id)
+        return user
+        .findById(req.params.id)
         .then(usr => {
             if(!usr) {
                 return res.status(404).json(
                     ResponseFormat.error(
                         {},
-                        "client not found",
+                        "user not found",
                         404,
                         "error"
                     )
@@ -135,7 +135,7 @@ module.exports = {
             .then(() => res.status(200).json(
                ResponseFormat.build(
                  {},
-                 "client deleted successfully",
+                 "user deleted successfully",
                  200,
                  "success"
                )
@@ -143,7 +143,7 @@ module.exports = {
             .catch(error => res.status(500).json(
                 ResponseFormat.error(
                     error,
-                    "someting went wrong when delete the client",
+                    "someting went wrong when delete the user",
                     500,
                     "error"
                 )

@@ -3,19 +3,21 @@ const Sequelize = require('sequelize');
 var db = require('../database/index');
 var sequelize = db.sequelize;
 
-const Client = sequelize.define("clients",{
+const User = sequelize.define("users",{
     id : {
       type : Sequelize.INTEGER(11),
       allowNull : false,
       autoIncrement : true,
       primaryKey : true
     },
-    firstname :  {
+    lastname :  {
       type : Sequelize.STRING(30),
       allowNull : false
     },
-    lastname :  Sequelize.STRING(30),
-    email :  Sequelize.STRING(30),
+    firstname :  {
+      type : Sequelize.STRING(30),
+      allowNull : true
+    },
     createdAt : {
      type : Sequelize.DATE,
      defaultValue: Sequelize.NOW
@@ -30,9 +32,10 @@ const Client = sequelize.define("clients",{
   }
 );
 
-// associations
-Client.associate = models => {
- Client.belongsTo(models.User);
-};
+   // associations
+  User.associate = models => {
+    User.hasMany(models.Client);
+  };
 
-module.exports = Client;
+
+module.exports = User;
