@@ -22,7 +22,7 @@
    4) ``` sequelize db:migrate ```
 
 ### Step 3
-  Create file '.en' in folder 'starter/back-app'
+  Create file '.env' in folder 'starter/back-app'
   ```
   NODE_ENV=development
   DB_USER=root
@@ -36,4 +36,4 @@
 ### Step 4
  1) In 'front-app' : ```npm start```
  2) In 'back-app' : ``` node server.js```
- 3) In back to test : ``` npm run test ```
+ 3) In back to test : ```  NODE_ENV=test sequelize db:create && npm run test ```
